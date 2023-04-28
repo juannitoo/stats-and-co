@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+
+    <head>
+        <title>Barnes Immo Stats annonces</title>
+        <link rel="stylesheet" href="{% static 'app.css' %}">
+    </head>
+
+    <body>
+        {% include 'menu.html' %}
+        <div class="main">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+
+</html>
