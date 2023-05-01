@@ -20,7 +20,7 @@ def bot_lanutrition(url):
 
     title = driver.title
 
-    data = {}
+    data = OrderedDict()
 
     ############################################################################
 
@@ -30,7 +30,7 @@ def bot_lanutrition(url):
         if i < 3:
           data[f"tableau{i+1}"] = [[titre.text],[""]] # je crée une fausse ligne pour "span" les entetes des tableaux
         elif i >= 3:
-          data[f"tableau4"] = [['Les Corps Gras, (tous à moins de 5mg/portion)'],[""]]         
+          data[f"tableau4"] = [['Corps gras, (tous à moins de 5mg/portion)'],[""]]         
           data[f"tableau{i+2}"] = [[titre.text],[""]] 
         elif i >= 7:
             break
@@ -39,9 +39,11 @@ def bot_lanutrition(url):
 
     tableaux = driver.find_elements(By.TAG_NAME, 'table')
     entetes = [] 
+
     for i, tableau in enumerate(tableaux) :
+        
         if i == 0 :
-            entetes_list = tableau.find_elements(By.CSS_SELECTOR, 'tbody tr td p')[0:3]
+            entetes_list = tableau.find_elements(By.CSS_SELECTOR, 'tbody tr td')[0:3]
             for element in entetes_list:
                 entetes.append(element.text)
 
@@ -63,8 +65,10 @@ def bot_lanutrition(url):
             if (j+1)%3 != 0 and j == len(content_temp)-1:
                 sublist.append(subsublist)
 
-        if i == 0 : 
-            data[f"tableau{i+1}"] += [entetes]
+        if i == 3:
+            data[f"tableau{i+1}"] += [" "] + [" "] # pour le span de mg/portion
+        else:
+            data[f"tableau{i+1}"] += [entetes] + [" "] # pour le span de mg/portion
 
         data[f"tableau{i+1}"] += sublist
         if i >= 7:

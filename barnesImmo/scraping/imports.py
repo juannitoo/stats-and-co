@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests, re
+from collections import OrderedDict
 
 # sur wsl mieux chromium
 from selenium import webdriver
