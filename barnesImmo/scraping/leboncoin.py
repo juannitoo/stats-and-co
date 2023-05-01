@@ -2,7 +2,7 @@ from .imports import *
 
 # print('leboncoin chargé')
 
-def bot(url):
+def bot_leboncoin(url):
      # requests bs4
     headers = {
         "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
@@ -37,6 +37,5 @@ def bot(url):
 
 
     nom_fichier = re.split(r'\.', url)[1]
-    print(f'{nom_fichier}.html')
     with open(f'save_scrap/{nom_fichier}.html', 'w') as fichier:
         fichier.write(str(html))
