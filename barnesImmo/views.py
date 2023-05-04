@@ -23,7 +23,7 @@ def home(request):
 
     url = urls['lanutrition']
 
-    demarer_scraping = True
+    demarer_scraping = False
 
     if demarer_scraping:
         data = bot_lanutrition(url)

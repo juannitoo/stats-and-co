@@ -1,5 +1,7 @@
 from .imports import *
 
+# https://dev.to/awscommunity-asean/creating-an-api-that-runs-selenium-via-aws-lambda-3ck3
+
 def myFirstPage(canvas, doc):
     canvas.saveState()
     canvas.setFont('Times-Bold',16)
@@ -14,12 +16,12 @@ def myFirstPage(canvas, doc):
 def myLaterPages(canvas, doc):
     canvas.saveState()
     canvas.setFont('Times-Roman',9)
-    canvas.drawString(cm, 0.75 * cm, f"Page {doc.page} / 4 ----- * plus de 50 mg ** plus de 100 mg *** plus de 200 mg " )
+    canvas.drawString(cm, 0.75 * cm, f"Page {doc.page} / 4 * plus de 50 mg ** plus de 100 mg *** plus de 200 mg " )
     canvas.restoreState()
 
 
 def lanutrition_pdf(data):
-    doc = SimpleDocTemplate("save_pdf/lanutrition.pdf")
+    doc = SimpleDocTemplate("save_pdf/lanutrition_aws.pdf")
     # canva = canvas.Canvas("save_pdf/lanutrition.pdf", pagesize=A4)
 
     Story = []
@@ -69,3 +71,11 @@ def lanutrition_pdf(data):
     # canva.save()
 
     doc.build(Story, onFirstPage=myFirstPage, onLaterPages=myLaterPages)
+
+
+# import requests
+
+# req = requests.get("https://2r6b2vyw3tvhyzt7ccswo2nlny0rdjef.lambda-url.eu-west-3.on.aws/")
+# res = req.json()
+
+# lanutrition_pdf(res)
