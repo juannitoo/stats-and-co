@@ -8,13 +8,13 @@ def myFirstPage(canvas, doc):
     canvas.drawCentredString(width/2.0, height-50, "Données obtenues sur lanutrition.fr")
     canvas.drawCentredString(width/2.0, height-65, "* plus de 50 mg ** plus de 100 mg *** plus de 200 mg")
     canvas.setFont('Times-Roman', 10)
-    canvas.drawString(cm, 0.75 * cm, f"First Page")
+    canvas.drawString(cm, 0.75 * cm, f"Page 1 / 4")
     canvas.restoreState()
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
     canvas.setFont('Times-Roman',9)
-    canvas.drawString(cm, 0.75 * cm, f"Page {doc.page} ----- * plus de 50 mg ** plus de 100 mg *** plus de 200 mg " )
+    canvas.drawString(cm, 0.75 * cm, f"Page {doc.page} / 4 ----- * plus de 50 mg ** plus de 100 mg *** plus de 200 mg " )
     canvas.restoreState()
 
 
