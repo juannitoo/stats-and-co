@@ -4,6 +4,8 @@ from django.shortcuts import render
 from .scraping.leboncoin import bot_leboncoin
 from .scraping.lanutrition import bot_lanutrition
 
+import requests
+
 # reportlab pdf
 from .reportlab.pdf import pdf
 
@@ -23,10 +25,12 @@ def home(request):
 
     url = urls['lanutrition']
 
-    demarer_scraping = False
+    demarer_scraping = True
 
     if demarer_scraping:
-        data = bot_lanutrition(url)
+        # data = bot_lanutrition(url)
+        data = requests.get('https://zk3g3vy67ipnc75khx2dorwtda0jiipz.lambda-url.eu-west-3.on.aws/').json()
+        print(data)
     else :
         data = {
             'tableau1': [

@@ -1,25 +1,29 @@
-from .imports import *
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from collections import OrderedDict
+import re, json
 
-print('lanutrition scraping chargé')
-
-def bot_lanutrition(url):
-
-    chrome_options = webdriver.ChromeOptions() 
-    ua = UserAgent()
-    user_agent = ua.random
-    chrome_options.add_argument('--no-sandbox') # obligé en 1er si nécessaire
-    chrome_options.add_argument('--headless') # unlock devtools fail
-    chrome_options.add_argument(f'--user-agent={user_agent}') # unlock devtools fail
+# from fake_useragent import UserAgent
 
 
-    driver = webdriver.Chrome(
-        service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), 
-        chrome_options=chrome_options
-        )
-    driver.get(url)
-
-    title = driver.title
-
+def lambda_handler(event, context):
+    # TODO implement
+    chrome_options = Options()
+    chrome_options.binary_location = '/opt/chrome/chrome'
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1280x1696")
+    chrome_options.add_argument("--single-process")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-dev-tools")
+    chrome_options.add_argument("--no-zygote")
+    chrome_options.add_argument("--remote-debugging-port=9222")
+        
+    driver = webdriver.Chrome('/opt/chromedriver', options=chrome_options)
+    driver.get("https://www.lanutrition.fr/les-aliments-riches-en-oxalate")
     data = OrderedDict()
 
     ############################################################################
@@ -73,17 +77,7 @@ def bot_lanutrition(url):
         data[f"tableau{i+1}"] += sublist
         if i >= 7:
             break
-          
-    # pour générer un fichier html de se qui est scrapé
-    # html = driver.find_element(By.TAG_NAME, 'html').get_attribute("outerHTML")
 
     driver.quit()
 
-    # print(f"entetes : {entetes}")
-    # print(f"data : {data}")
-
-    # nom_fichier = re.split(r'\.', url)[1]
-    # with open(f'save_scrap/{nom_fichier}.html', 'w') as fichier:
-    #     fichier.write(str(html))
-
-    return json.dumps(data)
+    return data

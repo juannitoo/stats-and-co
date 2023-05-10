@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import requests, re
+import requests, re, json
 from collections import OrderedDict
 
 # sur wsl mieux chromium
