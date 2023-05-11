@@ -58,4 +58,4 @@ https://docs.docker.com/engine/reference/commandline/build/#tag
 
 
 ### pour sortir un pdf du contenu avec chromium headless
-<code>chromium --headless=new --print-to-pdf https://developer.chrome.com/</code>
+<code>google-chrome --headless=new --print-to-pdf https://developer.chrome.com/</code>
