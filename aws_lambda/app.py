@@ -80,4 +80,4 @@ def lambda_handler(event, context):
 
     driver.quit()
 
-    return data
+    return json.dumps(data)

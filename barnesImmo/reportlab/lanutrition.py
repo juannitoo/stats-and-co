@@ -44,7 +44,7 @@ def lanutrition_pdf(data):
             ('SPAN',(0,0),(-1,1)),
             ('BACKGROUND', (0,0), (-1,1), colors.Color(red=(245/255),green=(245/255),blue=(240/255))),
             ('FONTSIZE', (0,0), (-1,1), 14),
-            ('SPAN',(0,2),(0,3)),
+            ('SPAN',(0,2),(0,3)), # unifie les cellules
             ('SPAN',(1,2),(1,3)),
             ('SPAN',(2,2),(2,3)),
             ('BACKGROUND', (0,2), (0,-1), colors.Color(red=(255/255),green=(220/255),blue=(220/255))),
