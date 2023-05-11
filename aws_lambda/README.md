@@ -1,9 +1,9 @@
 # Attention, ce dossier ne fait pas parti de ce repo 
 et doit être placé dans son venv perso pour installerles dépendances chrome et chromedriver avant de créer l'image via docker m'évite là de créer un repo spécial pour ca sur githu.
 
-#### pour s'en servir, il faut faire un couper coller hors du dossier racine stats-and-co et de son venv
+### pour s'en servir, il faut faire un couper coller hors du dossier racine stats-and-co et de son venv
 
-<code>chromium --headless=new --print-to-pdf https://developer.chrome.com/</code>
+
 
 ### Pour créer l'image docker avec selenium et chrome, il faut :
 1. créer un dossier spécial et y créer un venv pour y installer nos dépendances, ici selenium, 
@@ -55,3 +55,7 @@ https://docs.aws.amazon.com/fr_fr/AmazonECR/latest/userguide/docker-push-ecr-ima
 https://docs.docker.com/engine/reference/builder/  
 
 https://docs.docker.com/engine/reference/commandline/build/#tag  
+
+
+### pour sortir un pdf du contenu avec chromium headless
+<code>chromium --headless=new --print-to-pdf https://developer.chrome.com/</code>
