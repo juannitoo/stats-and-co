@@ -36,17 +36,22 @@ docker push 214622732998.dkr.ecr.eu-west-3.amazonaws.com/selenium:selenium-lanut
 
 
 ### Liens utiles
-https://gallery.ecr.aws/lambda/python
-https://gallery.ecr.aws/?page=1
-
 https://github.com/umihico/docker-selenium-lambda
 
+https://gallery.ecr.aws/lambda/python 
+
+https://gallery.ecr.aws/?page=1
+
 https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+
 https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-images.html#configuration-images-create
+
 https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
+
 https://docs.aws.amazon.com/lambda/latest/dg/images-test.html#images-test-limitations
+
 https://docs.aws.amazon.com/fr_fr/AmazonECR/latest/userguide/docker-push-ecr-image.html
 
+https://docs.docker.com/engine/reference/builder/  
 
-https://docs.docker.com/engine/reference/builder/
-https://docs.docker.com/engine/reference/commandline/build/#tag
+https://docs.docker.com/engine/reference/commandline/build/#tag  
