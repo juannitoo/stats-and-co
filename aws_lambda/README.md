@@ -26,7 +26,7 @@ docker build -t selenium_lanutrition_ss_json .
 
 docker tag selenium_lanutrition:latest XXXXXXXXXXXX.dkr.ecr.eu-west-3.amazonaws.com/selenium:selenium-lanutrition
 
-docker push 214622732998.dkr.ecr.eu-west-3.amazonaws.com/selenium:selenium-lanutrition-ss-json
+docker push XXXXXXXXXXXX.dkr.ecr.eu-west-3.amazonaws.com/selenium:selenium-lanutrition-ss-json
 ```
 
 ### Dernière étape, configuration aws

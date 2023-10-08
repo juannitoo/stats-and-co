@@ -1,4 +1,4 @@
 app-env
 __pycache__
-save_pdf
 aws_lambda/env
+save_password
